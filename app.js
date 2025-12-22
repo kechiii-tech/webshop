@@ -1,7 +1,6 @@
 // Skydaddy Technologies Portfolio - WhatsApp Integration
-
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Skydaddy Technologies Portfolio - Initializing WhatsApp Integration');
+    console.log('Skydaddy Technologies Portfolio - Initializing');
     
     // Elements
     const navToggle = document.getElementById('navToggle');
@@ -12,92 +11,77 @@ document.addEventListener('DOMContentLoaded', function() {
     const charCount = document.getElementById('charCount');
     const sections = document.querySelectorAll('.section');
     
-    // WhatsApp phone number
-    const WHATSAPP_NUMBER = '254117702463';
+    // WhatsApp Configuration
+    const WHATSAPP_NUMBER = '254117702463'; // Phone number without + or 00
     
-    // Initialize all functionality
+    // Initialize
     initNavigation();
     initSmoothScroll();
     initWhatsAppForm();
     initMessageCounter();
-    initIntersectionObserver();
+    initAnimations();
     
-    // Navigation Toggle for Mobile
+    // ===== NAVIGATION =====
     function initNavigation() {
-        if (navToggle) {
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                this.setAttribute('aria-expanded', 
-                    this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-                );
+        if (!navToggle) return;
+        
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        });
+        
+        // Close menu when clicking links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
             });
-            
-            // Close menu when clicking a link
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                        navToggle.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) {
-                    navMenu.classList.remove('active');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
     
-    // Smooth Scrolling for Navigation Links
+    // ===== SMOOTH SCROLL =====
     function initSmoothScroll() {
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 70;
-                    
+                const target = document.querySelector(targetId);
+                if (target) {
                     window.scrollTo({
-                        top: offsetTop,
+                        top: target.offsetTop - 70,
                         behavior: 'smooth'
                     });
-                    
-                    // Update active nav link
-                    updateActiveNavLink(targetId);
+                    updateActiveLink(targetId);
                 }
             });
         });
         
-        // Update active link on scroll
-        window.addEventListener('scroll', updateActiveNavLinkOnScroll);
+        window.addEventListener('scroll', updateActiveLinkOnScroll);
     }
     
-    // Update active navigation link based on scroll position
-    function updateActiveNavLinkOnScroll() {
+    function updateActiveLinkOnScroll() {
         let current = '';
-        
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
             const sectionHeight = section.clientHeight;
-            
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                current = '#' + section.getAttribute('id');
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                current = '#' + section.id;
             }
         });
-        
-        updateActiveNavLink(current);
+        updateActiveLink(current);
     }
     
-    // Update active nav link
-    function updateActiveNavLink(targetId) {
+    function updateActiveLink(targetId) {
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === targetId) {
@@ -106,99 +90,139 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initialize WhatsApp Form
+    // ===== WHATSAPP FORM =====
     function initWhatsAppForm() {
         if (!whatsappForm) return;
         
         whatsappForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log('Form submitted');
             
-            // Get form data
-            const formData = {
-                name: document.getElementById('userName').value.trim(),
-                email: document.getElementById('userEmail').value.trim(),
-                projectType: document.getElementById('messageType').value,
-                message: document.getElementById('userMessage').value.trim()
-            };
+            // Get form values
+            const name = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const projectType = document.getElementById('messageType').value;
+            const message = document.getElementById('userMessage').value.trim();
             
-            // Validate form
-            if (!validateWhatsAppForm(formData)) {
+            console.log('Form data:', { name, email, projectType, message });
+            
+            // Basic validation
+            if (!validateForm(name, email, projectType, message)) {
                 return;
             }
             
             // Create WhatsApp message
-            const whatsappMessage = formatWhatsAppMessage(formData);
+            const whatsappMessage = createWhatsAppMessage(name, email, projectType, message);
+            console.log('WhatsApp message created');
             
-            // Send via WhatsApp
-            sendToWhatsApp(whatsappMessage);
-            
-            // Show success message and reset form
-            showFormSuccess();
+            // Open WhatsApp
+            openWhatsApp(whatsappMessage);
         });
     }
     
-    // Validate WhatsApp Form
-    function validateWhatsAppForm(data) {
-        // Check required fields
-        if (!data.name || !data.email || !data.projectType || !data.message) {
-            alert('Please fill in all required fields.');
+    function validateForm(name, email, projectType, message) {
+        if (!name) {
+            alert('Please enter your name');
             return false;
         }
-        
-        // Validate email
-        if (!isValidEmail(data.email)) {
-            alert('Please enter a valid email address.');
+        if (!email) {
+            alert('Please enter your email');
             return false;
         }
-        
-        // Validate message length
-        if (data.message.length < 10) {
-            alert('Please provide a more detailed message (at least 10 characters).');
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
             return false;
         }
-        
+        if (!projectType) {
+            alert('Please select a project type');
+            return false;
+        }
+        if (!message) {
+            alert('Please enter your message');
+            return false;
+        }
+        if (message.length < 10) {
+            alert('Please write a more detailed message (at least 10 characters)');
+            return false;
+        }
         return true;
     }
     
-    // Email validation
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
     
-    // Format WhatsApp Message
-    function formatWhatsAppMessage(data) {
-        const timestamp = new Date().toLocaleString();
+    function createWhatsAppMessage(name, email, projectType, message) {
+        const date = new Date().toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
         
-        return `*New Message from Skydaddy Portfolio*%0A%0A` +
-               `*Date:* ${timestamp}%0A` +
-               `*Name:* ${data.name}%0A` +
-               `*Email:* ${data.email}%0A` +
-               `*Project Type:* ${data.projectType}%0A%0A` +
-               `*Message:*%0A${data.message}%0A%0A` +
-               `_This message was sent through the contact form on skydaddy.tech_`;
+        const time = new Date().toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Create formatted message
+        let formattedMessage = `*NEW MESSAGE FROM SKYDADDY PORTFOLIO*\n\n`;
+        formattedMessage += `*Date:* ${date} ${time}\n`;
+        formattedMessage += `*Name:* ${name}\n`;
+        formattedMessage += `*Email:* ${email}\n`;
+        formattedMessage += `*Project Type:* ${projectType}\n\n`;
+        formattedMessage += `*Message:*\n${message}\n\n`;
+        formattedMessage += `---\n`;
+        formattedMessage += `_Sent via skydaddy.tech portfolio_`;
+        
+        return formattedMessage;
     }
     
-    // Send message to WhatsApp
-    function sendToWhatsApp(message) {
-        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    function openWhatsApp(message) {
+        // Encode the message for URL
+        const encodedMessage = encodeURIComponent(message);
+        console.log('Encoded message:', encodedMessage);
         
-        // Open WhatsApp based on device
-        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-            // Mobile device - open in WhatsApp app
-            window.location.href = whatsappUrl;
-        } else {
-            // Desktop - open in new tab
-            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-            
-            // Show confirmation message for desktop users
-            setTimeout(() => {
-                alert('WhatsApp has been opened in a new tab. Please complete sending your message there.');
-            }, 500);
-        }
+        // Create WhatsApp URL - CORRECT FORMAT
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+        console.log('WhatsApp URL:', whatsappUrl);
+        
+        // Update button to show loading
+        const submitBtn = whatsappForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
+        submitBtn.disabled = true;
+        
+        // Try to open WhatsApp
+        setTimeout(() => {
+            try {
+                // Open in new tab for better compatibility
+                const newWindow = window.open(whatsappUrl, '_blank');
+                
+                if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                    // Fallback for mobile devices or blocked popups
+                    window.location.href = whatsappUrl;
+                }
+                
+                // Reset form after 2 seconds
+                setTimeout(() => {
+                    whatsappForm.reset();
+                    charCount.textContent = '0';
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error opening WhatsApp:', error);
+                alert('Could not open WhatsApp. Please try again or contact us directly at +254 117 702 463');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        }, 500);
     }
     
-    // Initialize message character counter
+    // ===== CHARACTER COUNTER =====
     function initMessageCounter() {
         if (!messageInput || !charCount) return;
         
@@ -207,15 +231,15 @@ document.addEventListener('DOMContentLoaded', function() {
             charCount.textContent = length;
             
             // Update color based on length
-            if (length > 400) {
+            if (length > 450) {
                 charCount.style.color = '#dc2626';
-            } else if (length > 300) {
+            } else if (length > 350) {
                 charCount.style.color = '#ea580c';
             } else {
                 charCount.style.color = '#374151';
             }
             
-            // Enforce max length
+            // Limit to 500 characters
             if (length > 500) {
                 this.value = this.value.substring(0, 500);
                 charCount.textContent = 500;
@@ -223,120 +247,98 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Show form success
-    function showFormSuccess() {
-        const submitBtn = whatsappForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
+    // ===== ANIMATIONS =====
+    function initAnimations() {
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .service-card, .project-card, .contact-card {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+            
+            .service-card.animated, .project-card.animated, .contact-card.animated {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .service-card:nth-child(1) { transition-delay: 0.1s; }
+            .service-card:nth-child(2) { transition-delay: 0.2s; }
+            .service-card:nth-child(3) { transition-delay: 0.3s; }
+            .service-card:nth-child(4) { transition-delay: 0.4s; }
+            
+            .btn-whatsapp:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+            }
+            
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            .fa-spin {
+                animation: spin 1s linear infinite;
+            }
+        `;
+        document.head.appendChild(style);
         
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Opening WhatsApp...';
-        submitBtn.disabled = true;
-        
-        // Reset form after 3 seconds
-        setTimeout(() => {
-            whatsappForm.reset();
-            charCount.textContent = '0';
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }, 3000);
-    }
-    
-    // Intersection Observer for animations
-    function initIntersectionObserver() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
+        // Initialize intersection observer for animations
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
+                    entry.target.classList.add('animated');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
         
-        // Observe service cards and project cards
-        document.querySelectorAll('.service-card, .project-card').forEach(card => {
-            observer.observe(card);
+        // Observe elements
+        document.querySelectorAll('.service-card, .project-card, .contact-card').forEach(el => {
+            observer.observe(el);
         });
     }
     
-    // Add animation classes to CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        .service-card, .project-card {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
+    // ===== TEST WHATSAPP FUNCTION =====
+    // Add a test button for debugging
+    function addTestButton() {
+        const testBtn = document.createElement('button');
+        testBtn.innerHTML = 'Test WhatsApp Link';
+        testBtn.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+            display: none;
+        `;
+        testBtn.onclick = function() {
+            const testMessage = 'Test message from Skydaddy portfolio';
+            const encoded = encodeURIComponent(testMessage);
+            const testUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+            console.log('Test URL:', testUrl);
+            window.open(testUrl, '_blank');
+        };
+        document.body.appendChild(testBtn);
         
-        .service-card.in-view, .project-card.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .service-card:nth-child(1) { transition-delay: 0.1s; }
-        .service-card:nth-child(2) { transition-delay: 0.2s; }
-        .service-card:nth-child(3) { transition-delay: 0.3s; }
-        .service-card:nth-child(4) { transition-delay: 0.4s; }
-        
-        .project-card:nth-child(1) { transition-delay: 0.1s; }
-        .project-card:nth-child(2) { transition-delay: 0.2s; }
-        .project-card:nth-child(3) { transition-delay: 0.3s; }
-        .project-card:nth-child(4) { transition-delay: 0.4s; }
-        
-        @media (prefers-reduced-motion: reduce) {
-            .service-card, .project-card {
-                transition: none;
-                opacity: 1;
-                transform: none;
+        // Show test button on shift+ctrl+T
+        document.addEventListener('keydown', (e) => {
+            if (e.shiftKey && e.ctrlKey && e.key === 'T') {
+                testBtn.style.display = 'block';
             }
-        }
-        
-        /* Form validation styles */
-        .form-group input:invalid,
-        .form-group select:invalid,
-        .form-group textarea:invalid {
-            border-color: #dc2626;
-        }
-        
-        .form-group input:valid,
-        .form-group select:valid,
-        .form-group textarea:valid {
-            border-color: #10b981;
-        }
-        
-        /* Loading animation for form submission */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        .btn-whatsapp:disabled {
-            animation: pulse 1s infinite;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Initialize current section on load
-    updateActiveNavLinkOnScroll();
-    
-    // Add form validation feedback
-    whatsappForm.addEventListener('change', function(e) {
-        if (e.target.matches('input, select, textarea')) {
-            validateField(e.target);
-        }
-    });
-    
-    function validateField(field) {
-        if (field.validity.valid) {
-            field.classList.remove('invalid');
-            field.classList.add('valid');
-        } else {
-            field.classList.remove('valid');
-            field.classList.add('invalid');
-        }
+        });
     }
     
-    console.log('Skydaddy Technologies Portfolio - WhatsApp Integration Ready');
+    // Initialize test button
+    addTestButton();
+    
+    // Initialize active link on load
+    updateActiveLinkOnScroll();
+    
+    console.log('Portfolio initialized successfully');
 });
