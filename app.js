@@ -1,19 +1,25 @@
-// Professional Portfolio JavaScript
+// Skydaddy Technologies Portfolio - WhatsApp Integration
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Skydaddy Technologies Portfolio - Initializing');
+    console.log('Skydaddy Technologies Portfolio - Initializing WhatsApp Integration');
     
     // Elements
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
-    const contactForm = document.getElementById('contactForm');
+    const whatsappForm = document.getElementById('whatsappForm');
+    const messageInput = document.getElementById('userMessage');
+    const charCount = document.getElementById('charCount');
     const sections = document.querySelectorAll('.section');
+    
+    // WhatsApp phone number
+    const WHATSAPP_NUMBER = '254117702463';
     
     // Initialize all functionality
     initNavigation();
     initSmoothScroll();
-    initContactForm();
+    initWhatsAppForm();
+    initMessageCounter();
     initIntersectionObserver();
     
     // Navigation Toggle for Mobile
@@ -57,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const targetSection = document.querySelector(targetId);
                 if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
+                    const offsetTop = targetSection.offsetTop - 70;
                     
                     window.scrollTo({
                         top: offsetTop,
@@ -100,53 +106,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Contact Form Handling
-    function initContactForm() {
-        if (!contactForm) return;
+    // Initialize WhatsApp Form
+    function initWhatsAppForm() {
+        if (!whatsappForm) return;
         
-        contactForm.addEventListener('submit', function(e) {
+        whatsappForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
             const formData = {
-                name: document.getElementById('name').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                subject: document.getElementById('subject').value.trim(),
-                message: document.getElementById('message').value.trim()
+                name: document.getElementById('userName').value.trim(),
+                email: document.getElementById('userEmail').value.trim(),
+                projectType: document.getElementById('messageType').value,
+                message: document.getElementById('userMessage').value.trim()
             };
             
             // Validate form
-            if (!validateForm(formData)) {
+            if (!validateWhatsAppForm(formData)) {
                 return;
             }
             
             // Create WhatsApp message
-            const whatsappMessage = `*New Project Inquiry from Skydaddy Portfolio*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Project Type:* ${formData.subject}%0A%0A*Message:*%0A${formData.message}%0A%0A_This inquiry was submitted via the contact form on Skydaddy.tech_`;
+            const whatsappMessage = formatWhatsAppMessage(formData);
             
             // Send via WhatsApp
-            const whatsappUrl = `https://wa.me/254117702463?text=${encodeURIComponent(whatsappMessage)}`;
+            sendToWhatsApp(whatsappMessage);
             
-            // Open WhatsApp based on device
-            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-                window.location.href = whatsappUrl;
-            } else {
-                window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-            }
-            
-            // Show success message
+            // Show success message and reset form
             showFormSuccess();
         });
     }
     
-    // Form validation
-    function validateForm(data) {
-        if (!data.name || !data.email || !data.subject || !data.message) {
+    // Validate WhatsApp Form
+    function validateWhatsAppForm(data) {
+        // Check required fields
+        if (!data.name || !data.email || !data.projectType || !data.message) {
             alert('Please fill in all required fields.');
             return false;
         }
         
+        // Validate email
         if (!isValidEmail(data.email)) {
             alert('Please enter a valid email address.');
+            return false;
+        }
+        
+        // Validate message length
+        if (data.message.length < 10) {
+            alert('Please provide a more detailed message (at least 10 characters).');
             return false;
         }
         
@@ -159,21 +166,77 @@ document.addEventListener('DOMContentLoaded', function() {
         return emailRegex.test(email);
     }
     
+    // Format WhatsApp Message
+    function formatWhatsAppMessage(data) {
+        const timestamp = new Date().toLocaleString();
+        
+        return `*New Message from Skydaddy Portfolio*%0A%0A` +
+               `*Date:* ${timestamp}%0A` +
+               `*Name:* ${data.name}%0A` +
+               `*Email:* ${data.email}%0A` +
+               `*Project Type:* ${data.projectType}%0A%0A` +
+               `*Message:*%0A${data.message}%0A%0A` +
+               `_This message was sent through the contact form on skydaddy.tech_`;
+    }
+    
+    // Send message to WhatsApp
+    function sendToWhatsApp(message) {
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        
+        // Open WhatsApp based on device
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            // Mobile device - open in WhatsApp app
+            window.location.href = whatsappUrl;
+        } else {
+            // Desktop - open in new tab
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            
+            // Show confirmation message for desktop users
+            setTimeout(() => {
+                alert('WhatsApp has been opened in a new tab. Please complete sending your message there.');
+            }, 500);
+        }
+    }
+    
+    // Initialize message character counter
+    function initMessageCounter() {
+        if (!messageInput || !charCount) return;
+        
+        messageInput.addEventListener('input', function() {
+            const length = this.value.length;
+            charCount.textContent = length;
+            
+            // Update color based on length
+            if (length > 400) {
+                charCount.style.color = '#dc2626';
+            } else if (length > 300) {
+                charCount.style.color = '#ea580c';
+            } else {
+                charCount.style.color = '#374151';
+            }
+            
+            // Enforce max length
+            if (length > 500) {
+                this.value = this.value.substring(0, 500);
+                charCount.textContent = 500;
+            }
+        });
+    }
+    
     // Show form success
     function showFormSuccess() {
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const submitBtn = whatsappForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        submitBtn.style.background = '#10b981';
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Opening WhatsApp...';
+        submitBtn.disabled = true;
         
-        // Reset form
-        contactForm.reset();
-        
-        // Reset button after 3 seconds
+        // Reset form after 3 seconds
         setTimeout(() => {
+            whatsappForm.reset();
+            charCount.textContent = '0';
             submitBtn.innerHTML = originalText;
-            submitBtn.style.background = '';
+            submitBtn.disabled = false;
         }, 3000);
     }
     
@@ -229,11 +292,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 transform: none;
             }
         }
+        
+        /* Form validation styles */
+        .form-group input:invalid,
+        .form-group select:invalid,
+        .form-group textarea:invalid {
+            border-color: #dc2626;
+        }
+        
+        .form-group input:valid,
+        .form-group select:valid,
+        .form-group textarea:valid {
+            border-color: #10b981;
+        }
+        
+        /* Loading animation for form submission */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .btn-whatsapp:disabled {
+            animation: pulse 1s infinite;
+        }
     `;
     document.head.appendChild(style);
     
     // Initialize current section on load
     updateActiveNavLinkOnScroll();
     
-    console.log('Skydaddy Technologies Portfolio - Ready');
+    // Add form validation feedback
+    whatsappForm.addEventListener('change', function(e) {
+        if (e.target.matches('input, select, textarea')) {
+            validateField(e.target);
+        }
+    });
+    
+    function validateField(field) {
+        if (field.validity.valid) {
+            field.classList.remove('invalid');
+            field.classList.add('valid');
+        } else {
+            field.classList.remove('valid');
+            field.classList.add('invalid');
+        }
+    }
+    
+    console.log('Skydaddy Technologies Portfolio - WhatsApp Integration Ready');
 });
