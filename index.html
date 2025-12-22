@@ -282,11 +282,24 @@
             <div class="section-content">
                 <div class="section-header">
                     <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-                    <p class="section-subtitle">Let's discuss your next project or technical challenge</p>
+                    <p class="section-subtitle">Send us a message directly through WhatsApp</p>
                 </div>
                 
                 <div class="contact-container">
                     <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h3>Direct WhatsApp Chat</h3>
+                                <a href="https://wa.me/254117702463" target="_blank" class="contact-detail">
+                                    +254 117 702 463
+                                </a>
+                                <p class="contact-note">Click to start a conversation</p>
+                            </div>
+                        </div>
+                        
                         <div class="contact-card">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
@@ -296,20 +309,7 @@
                                 <a href="mailto:kipkoechryan@gmail.com" class="contact-detail">
                                     kipkoechryan@gmail.com
                                 </a>
-                                <p class="contact-note">Typically responds within 2 hours</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div>
-                                <h3>WhatsApp Business</h3>
-                                <a href="https://wa.me/254117702463" target="_blank" class="contact-detail">
-                                    +254 117 702 463
-                                </a>
-                                <p class="contact-note">Preferred for quick inquiries</p>
+                                <p class="contact-note">For formal inquiries</p>
                             </div>
                         </div>
                         
@@ -329,41 +329,91 @@
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div>
-                                <h3>Working Hours</h3>
-                                <p class="contact-detail">Monday - Friday</p>
-                                <p class="contact-note">9:00 AM - 6:00 PM EAT</p>
+                                <h3>Response Time</h3>
+                                <p class="contact-detail">Within 2 Hours</p>
+                                <p class="contact-note">Mon-Fri, 9AM-6PM EAT</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="contact-form-container">
-                        <form id="contactForm" class="contact-form">
-                            <div class="form-group">
-                                <input type="text" id="name" placeholder="Your Full Name" required>
+                    <div class="whatsapp-form-container">
+                        <div class="form-header">
+                            <div class="whatsapp-icon">
+                                <i class="fab fa-whatsapp"></i>
                             </div>
-                            
-                            <div class="form-group">
-                                <input type="email" id="email" placeholder="Your Email Address" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="text" id="subject" placeholder="Project Type" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <textarea id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary btn-block">
-                                <i class="fas fa-paper-plane"></i>
-                                Send Message
-                            </button>
-                        </form>
-                        
-                        <div class="form-notice">
-                            <i class="fas fa-info-circle"></i>
-                            <p>We'll respond to your inquiry within 24 hours. For urgent matters, please use WhatsApp.</p>
+                            <h3>Send Message via WhatsApp</h3>
+                            <p class="form-subtitle">Your message will open directly in WhatsApp</p>
                         </div>
+                        
+                        <form id="whatsappForm" class="whatsapp-form">
+                            <div class="form-group">
+                                <label for="userName">Your Name</label>
+                                <input type="text" id="userName" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="userEmail">Email Address</label>
+                                <input type="email" id="userEmail" placeholder="Enter your email address" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="messageType">Project Type</label>
+                                <select id="messageType" required>
+                                    <option value="" disabled selected>Select project type</option>
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="Mobile App">Mobile Application</option>
+                                    <option value="Backend System">Backend System</option>
+                                    <option value="Cloud Solution">Cloud Solution</option>
+                                    <option value="Consultation">Consultation</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="userMessage">Your Message</label>
+                                <textarea id="userMessage" rows="4" placeholder="Describe your project or inquiry..." required></textarea>
+                                <div class="char-counter">
+                                    <span id="charCount">0</span>/500 characters
+                                </div>
+                            </div>
+                            
+                            <div class="form-footer">
+                                <button type="submit" class="btn btn-whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                    Send via WhatsApp
+                                </button>
+                                <p class="form-notice">
+                                    <i class="fas fa-info-circle"></i>
+                                    You'll be redirected to WhatsApp to send the message
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Alternative Contact Methods -->
+                <div class="alternative-contact">
+                    <h3>Alternative Contact Methods</h3>
+                    <div class="contact-methods">
+                        <a href="https://wa.me/254117702463?text=Hello%20Skydaddy%20Technologies!%20I%20found%20you%20through%20your%20portfolio%20website.%20I'd%20like%20to%20discuss%20a%20project." 
+                           target="_blank" class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Quick Start Chat</span>
+                            <small>Pre-filled message</small>
+                        </a>
+                        
+                        <a href="mailto:kipkoechryan@gmail.com?subject=Project%20Inquiry%20from%20Skydaddy%20Portfolio&body=Hello%20Skydaddy%20Team,%0A%0AI%20found%20you%20through%20your%20portfolio%20website%20and%20would%20like%20to%20discuss%20a%20project.%0A%0ABest%20regards," 
+                           class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>Send Email</span>
+                            <small>Pre-filled template</small>
+                        </a>
+                        
+                        <a href="tel:+254117702463" class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <span>Call Us</span>
+                            <small>Direct call</small>
+                        </a>
                     </div>
                 </div>
             </div>
