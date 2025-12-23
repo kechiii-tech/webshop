@@ -3,9 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skydaddy Technologies | Full-Stack Development Solutions</title>
-    <meta name="description" content="Professional full-stack development agency specializing in frontend, backend, mobile apps, and cloud solutions.">
-    <meta name="keywords" content="web development, software engineering, mobile apps, cloud solutions, full-stack development">
+    <title>Skydaddy - Tech Development Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
+<body>
+    <!-- Navigation Dots -->
+    <nav class="nav-dots">
+        <a href="#home" class="dot active" data-section="home"></a>
+        <a href="#services" class="dot" data-section="services"></a>
+        <a href="#projects" class="dot" data-section="projects"></a>
+        <a href="#contact" class="dot" data-section="contact"></a>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="mobile-nav">
+        <button class="close-menu"><i class="fas fa-times"></i></button>
+        <a href="#home" class="mobile-nav-item active">Home</a>
+        <a href="#services" class="mobile-nav-item">Services</a>
+        <a href="#projects" class="mobile-nav-item">Projects</a>
+        <a href="#contact" class="mobile-nav-item">Contact</a>
+    </div>
+
+    <!-- Main Container -->
+    <main class="horizontal-scroll-container" id="mainContainer">
+        <!-- Home Section -->
+        <section id="home" class="horizontal-section home-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="company-name">Skydaddy<span class="tech">.tech</span></h1>
+                    <p class="tagline">Elevating Digital Experiences Through Code</p>
+                    <p class="description">Full-stack development solutions that transform your ideas into powerful, scalable digital products.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#services" class="btn primary-btn">Our Services <i class="fas fa-arrow-down"></i></a>
+                        <a href="#contact" class="btn secondary-btn">Get in Touch <i class="fas fa-paper-plane"></i></a>
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Projects Delivered</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Support</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5★</span>
+                            <span class="stat-label">Client Rating</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="floating-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="floating-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="floating-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-hint">
+                <span>Swipe or scroll →</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="horizontal-section services-section">
+            <div class="section-header">
+                <h2>Our <span class="highlight">Services</span></h2>
+                <p class="section-subtitle">Comprehensive tech solutions tailored to your needs</p>
+            </div>
+            
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <ul class="service-list">
+                        <li>React, Angular, Vue.js</li>
+                        <li>Responsive Web Design</li>
+                        <li>Progressive Web Apps</li>
+                        <li>UI/UX Implementation</li>
+                        <li>Mobile-First Approach</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <ul class="service-list">
+                        <li>Node.js, Python, Java</li>
+                        <li>REST & GraphQL APIs</li>
+                        <li>Database Design</li>
+                        <li>Cloud Architecture</li>
+                        <li>Microservices</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Development</h3>
+                    <ul class="service-list">
+                        <li>iOS & Android Apps</li>
+                        <li>React Native</li>
+                        <li>Flutter</li>
+                        <li>Cross-Platform</li>
+                        <li>App Store Deployment</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>DevOps & Cloud</h3>
+                    <ul class="service-list">
+                        <li>AWS, Azure, GCP</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Docker & Kubernetes</li>
+                        <li>Infrastructure as Code</li>
+                        <li>Monitoring & Logging</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="vertical-scroll-hint">
+                <span>Scroll down for more</span>
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            
+            <div class="services-details">
+                <h3>Additional Expertise</h3>
+                <div class="expertise-grid">
+                    <div class="expertise-item">
+                        <i class="fas fa-database"></i>
+                        <span>Database Management</span>
+                    </div>
+                    <div class="expertise-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security & Testing</span>
+                    </div>
+                    <div class="expertise-item">
+                        <i class="fas fa-rocket"></i>
+                        <span>Performance Optimization</span>
+                    </div>
+                    <div class="expertise-item">
+                        <i class="fas fa-cogs"></i>
+                        <span>API Integration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="horizontal-section projects-section">
+            <div class="section-header">
+                <h2>Featured <span class="highlight">Projects</span></h2>
+                <p class="section-subtitle">Showcase of our recent successful implementations</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" onclick="window.open('https://bometgossipclub.vercel.app', '_blank')">
+                    <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span>Bomet Gossip Club</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Community Social Platform</h3>
+                        <p>A modern social platform for community engagement, news sharing, and local discussions</p>
+                        <div class="tech-stack">
+                            <span>React</span>
+                            <span>Next.js</span>
+                            <span>Vercel</span>
+                            <span>Social API</span>
+                        </div>
+                        <div class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Project
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="window.open('https://kipkoechemmanuelgit-cmyk.github.io/koem/', '_blank')">
+                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span>KOEM Portfolio</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>Modern portfolio showcasing design skills and projects with responsive layout</p>
+                        <div class="tech-stack">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>GitHub Pages</span>
+                        </div>
+                        <div class="project-link">
+                            <i class="fas fa-external-link-alt"></i> View Portfolio
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="window.open('https://kechiii-tech.github.io/trackduka/', '_blank')">
+                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span>TrackDuka</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Inventory Management System</h3>
+                        <p>Complete inventory tracking solution for small to medium businesses</p>
+                        <div class="tech-stack">
+                            <span>JavaScript</span>
+                            <span>Local Storage</span>
+                            <span>Bootstrap</span>
+                            <span>Chart.js</span>
+                        </div>
+                        <div class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Launch App
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="window.open('https://kechiii-tech.github.io/duka/', '_blank')">
+                    <div class="project-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <span>Duka E-commerce</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Online Store Platform</h3>
+                        <p>E-commerce solution with product catalog, cart, and checkout functionality</p>
+                        <div class="tech-stack">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>E-commerce</span>
+                            <span>Payment Ready</span>
+                        </div>
+                        <div class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Visit Store
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <span>Your Project Here</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Custom Development</h3>
+                        <p>Ready to build your next project? Let's create something amazing together!</p>
+                        <div class="tech-stack">
+                            <span>Your Stack</span>
+                            <span>Your Vision</span>
+                            <span>Our Expertise</span>
+                            <span>Success</span>
+                        </div>
+                        <div class="project-link" onclick="window.location.href='#contact'">
+                            <i class="fas fa-handshake"></i> Start Project
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="horizontal-section contact-section">
+            <div class="section-header">
+                <h2>Get In <span class="highlight">Touch</span></h2>
+                <p class="section-subtitle">Ready to start your next project? Let's talk!</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:kipkoechryan@gmail.com" class="contact-link">kipkoechryan@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/254117702463" target="_blank" class="contact-link">+254 117 702 463</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Available for remote work worldwide</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Availability</h3>
+                            <p>24/7 Support for ongoing projects</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn primary-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                    
+                    <div class="form-note">
+                        <p><i class="fas fa-info-circle"></i> For urgent inquiries, please use WhatsApp for faster response.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3>Skydaddy<span>.tech</span></h3>
+                        <p>Tech Development & Software Engineering</p>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#services">Services</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://wa.me/254117702463" target="_blank" class="social-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:kipkoechryan@gmail.com" class="social-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="#" class="social-icon github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skydaddy Technologies | Premium Digital Solutions</title>
+    <meta name="description" content="Award-winning full-stack development agency creating exceptional digital experiences">
+    <meta name="keywords" content="web development, software engineering, mobile apps, cloud solutions, UI/UX design">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
@@ -14,171 +399,161 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-brand">Skydaddy<span class="brand-tech">.tech</span></a>
+            <a href="#home" class="nav-brand">
+                <span class="logo-icon">⟁</span>
+                <span class="logo-text">Skydaddy<span class="logo-highlight">.tech</span></span>
+            </a>
             
             <div class="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#home" class="nav-link btn-nav active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <button class="nav-link btn-nav" id="servicesBtn">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </button>
+                <button class="nav-link btn-nav" id="projectsBtn">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Projects</span>
+                </button>
+                <button class="nav-link btn-nav" id="contactBtn">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Contact</span>
+                </button>
             </div>
             
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
             </button>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-container" id="mainContainer">
-        <!-- Home Section -->
-        <section id="home" class="section home-section">
-            <div class="section-content">
-                <div class="hero-content">
-                    <h1 class="hero-title">Skydaddy Technologies</h1>
-                    <p class="hero-subtitle">Elevating Digital Experiences Through Expert Engineering</p>
-                    <p class="hero-description">
-                        We deliver comprehensive full-stack development solutions that transform 
-                        business ideas into scalable, high-performance digital products.
-                    </p>
-                    
-                    <div class="hero-actions">
-                        <a href="#services" class="btn btn-primary">
-                            <i class="fas fa-cogs"></i>
-                            Explore Services
-                        </a>
-                        <a href="#contact" class="btn btn-outline">
-                            <i class="fas fa-paper-plane"></i>
-                            Start Project
-                        </a>
-                    </div>
-                    
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Projects Delivered</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label">Technical Support</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">5.0</span>
-                            <span class="stat-label">Client Rating</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="hero-visual">
-                    <div class="tech-icons">
-                        <div class="tech-icon">
-                            <i class="fab fa-react"></i>
-                        </div>
-                        <div class="tech-icon">
-                            <i class="fab fa-node-js"></i>
-                        </div>
-                        <div class="tech-icon">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <div class="tech-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                    </div>
-                </div>
+    <!-- Services Modal -->
+    <div class="modal-overlay" id="servicesModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">Our <span class="highlight">Services</span></h2>
+                <p class="modal-subtitle">Comprehensive technology solutions for your business</p>
+                <button class="modal-close btn-close" id="servicesClose">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
             
-            <div class="scroll-indicator">
-                <span>Scroll to explore</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="section services-section">
-            <div class="section-content">
-                <div class="section-header">
-                    <h2 class="section-title">Our <span class="highlight">Services</span></h2>
-                    <p class="section-subtitle">Comprehensive technology solutions for modern businesses</p>
-                </div>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
+            <div class="modal-content">
+                <div class="services-grid-modal">
+                    <div class="service-card-modal">
+                        <div class="service-icon-modal">
                             <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h3 class="service-title">Frontend Development</h3>
-                        <p class="service-description">
-                            Modern, responsive web applications using React, Vue.js, and Angular
-                        </p>
+                        <h3>Frontend Development</h3>
+                        <p>Modern, responsive web applications using React, Vue.js, and Angular</p>
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Responsive Design</li>
                             <li><i class="fas fa-check"></i> Progressive Web Apps</li>
+                            <li><i class="fas fa-check"></i> Responsive Design</li>
                             <li><i class="fas fa-check"></i> UI/UX Implementation</li>
                             <li><i class="fas fa-check"></i> Performance Optimization</li>
                         </ul>
+                        <div class="service-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </div>
+                        <button class="btn-service-action">
+                            <i class="fas fa-rocket"></i>
+                            <span>Start Project</span>
+                        </button>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-icon">
+                    <div class="service-card-modal">
+                        <div class="service-icon-modal">
                             <i class="fas fa-server"></i>
                         </div>
-                        <h3 class="service-title">Backend Development</h3>
-                        <p class="service-description">
-                            Scalable server-side solutions with Node.js, Python, and Java
-                        </p>
+                        <h3>Backend Systems</h3>
+                        <p>Scalable server architecture with microservices, APIs, and cloud solutions</p>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> REST & GraphQL APIs</li>
+                            <li><i class="fas fa-check"></i> Microservices</li>
                             <li><i class="fas fa-check"></i> Database Design</li>
-                            <li><i class="fas fa-check"></i> Microservices Architecture</li>
                             <li><i class="fas fa-check"></i> System Integration</li>
                         </ul>
+                        <div class="service-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <button class="btn-service-action">
+                            <i class="fas fa-rocket"></i>
+                            <span>Start Project</span>
+                        </button>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-icon">
+                    <div class="service-card-modal">
+                        <div class="service-icon-modal">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
-                        <h3 class="service-title">Mobile Development</h3>
-                        <p class="service-description">
-                            Cross-platform mobile applications for iOS and Android
-                        </p>
+                        <h3>Mobile Development</h3>
+                        <p>Cross-platform mobile applications for iOS and Android with native performance</p>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> React Native Apps</li>
                             <li><i class="fas fa-check"></i> Flutter Development</li>
                             <li><i class="fas fa-check"></i> App Store Deployment</li>
-                            <li><i class="fas fa-check"></i> Native Development</li>
+                            <li><i class="fas fa-check"></i> Native Features</li>
                         </ul>
+                        <div class="service-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">iOS/Android</span>
+                        </div>
+                        <button class="btn-service-action">
+                            <i class="fas fa-rocket"></i>
+                            <span>Start Project</span>
+                        </button>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-icon">
+                    <div class="service-card-modal">
+                        <div class="service-icon-modal">
                             <i class="fas fa-cloud-upload-alt"></i>
                         </div>
-                        <h3 class="service-title">Cloud & DevOps</h3>
-                        <p class="service-description">
-                            Cloud infrastructure and continuous deployment solutions
-                        </p>
+                        <h3>Cloud & DevOps</h3>
+                        <p>Complete cloud infrastructure and deployment solutions for modern applications</p>
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> AWS & Azure Solutions</li>
+                            <li><i class="fas fa-check"></i> AWS & Azure</li>
                             <li><i class="fas fa-check"></i> CI/CD Pipelines</li>
-                            <li><i class="fas fa-check"></i> Containerization</li>
-                            <li><i class="fas fa-check"></i> Infrastructure as Code</li>
+                            <li><i class="fas fa-check"></i> Docker & Kubernetes</li>
+                            <li><i class="fas fa-check"></i> Monitoring & Security</li>
                         </ul>
+                        <div class="service-tech">
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                        <button class="btn-service-action">
+                            <i class="fas fa-rocket"></i>
+                            <span>Start Project</span>
+                        </button>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section projects-section">
-            <div class="section-content">
-                <div class="section-header">
-                    <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
-                    <p class="section-subtitle">Showcase of our recent successful implementations</p>
-                </div>
-                
-                <div class="projects-grid">
-                    <div class="project-card">
+    <!-- Projects Modal -->
+    <div class="modal-overlay" id="projectsModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">Featured <span class="highlight">Projects</span></h2>
+                <p class="modal-subtitle">Showcase of our successful implementations</p>
+                <button class="modal-close btn-close" id="projectsClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="projects-grid-modal">
+                    <div class="project-card-modal">
                         <div class="project-image">
                             <div class="project-overlay">
                                 <h3>Bomet Gossip Club</h3>
@@ -186,23 +561,27 @@
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Community Engagement Platform</h3>
-                            <p class="project-description">
-                                A modern social platform for community discussions and local news sharing
-                            </p>
+                            <h3>Community Engagement Platform</h3>
+                            <p>A modern social platform for community discussions and local news sharing</p>
                             <div class="project-tech">
-                                <span>React</span>
-                                <span>Next.js</span>
-                                <span>Vercel</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Vercel</span>
                             </div>
-                            <a href="https://bometgossipclub.vercel.app" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                View Live Project
-                            </a>
+                            <div class="project-actions">
+                                <a href="https://bometgossipclub.vercel.app" target="_blank" class="btn-project-view">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>View Live</span>
+                                </a>
+                                <button class="btn-project-details">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Details</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="project-card">
+                    <div class="project-card-modal">
                         <div class="project-image">
                             <div class="project-overlay">
                                 <h3>KOEM Portfolio</h3>
@@ -210,23 +589,27 @@
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Digital Portfolio Website</h3>
-                            <p class="project-description">
-                                Modern responsive portfolio showcasing design and development expertise
-                            </p>
+                            <h3>Digital Portfolio Website</h3>
+                            <p>Modern responsive portfolio showcasing design and development expertise</p>
                             <div class="project-tech">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
                             </div>
-                            <a href="https://kipkoechemmanuelgit-cmyk.github.io/koem/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                View Portfolio
-                            </a>
+                            <div class="project-actions">
+                                <a href="https://kipkoechemmanuelgit-cmyk.github.io/koem/" target="_blank" class="btn-project-view">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>View Portfolio</span>
+                                </a>
+                                <button class="btn-project-details">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Details</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="project-card">
+                    <div class="project-card-modal">
                         <div class="project-image">
                             <div class="project-overlay">
                                 <h3>TrackDuka</h3>
@@ -234,23 +617,27 @@
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Inventory Management System</h3>
-                            <p class="project-description">
-                                Complete inventory tracking solution for small to medium businesses
-                            </p>
+                            <h3>Business Inventory System</h3>
+                            <p>Complete inventory tracking and management solution for businesses</p>
                             <div class="project-tech">
-                                <span>JavaScript</span>
-                                <span>Local Storage</span>
-                                <span>Chart.js</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Chart.js</span>
+                                <span class="tech-tag">Local Storage</span>
                             </div>
-                            <a href="https://kechiii-tech.github.io/trackduka/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Launch Application
-                            </a>
+                            <div class="project-actions">
+                                <a href="https://kechiii-tech.github.io/trackduka/" target="_blank" class="btn-project-view">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Launch App</span>
+                                </a>
+                                <button class="btn-project-details">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Details</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="project-card">
+                    <div class="project-card-modal">
                         <div class="project-image">
                             <div class="project-overlay">
                                 <h3>Duka E-commerce</h3>
@@ -258,162 +645,208 @@
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">E-commerce Store</h3>
-                            <p class="project-description">
-                                Fully functional online store with product catalog and checkout system
-                            </p>
+                            <h3>Online Retail Platform</h3>
+                            <p>Fully-featured e-commerce solution with product catalog and checkout</p>
                             <div class="project-tech">
-                                <span>HTML/CSS</span>
-                                <span>JavaScript</span>
-                                <span>E-commerce</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">E-commerce</span>
                             </div>
-                            <a href="https://kechiii-tech.github.io/duka/" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Visit Store
-                            </a>
+                            <div class="project-actions">
+                                <a href="https://kechiii-tech.github.io/duka/" target="_blank" class="btn-project-view">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Visit Store</span>
+                                </a>
+                                <button class="btn-project-details">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Details</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
-            <div class="section-content">
-                <div class="section-header">
-                    <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-                    <p class="section-subtitle">Send us a message directly through WhatsApp</p>
-                </div>
-                
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <div class="contact-card">
-                            <div class="contact-icon">
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-container modal-contact">
+            <div class="modal-header">
+                <h2 class="modal-title">Get In <span class="highlight">Touch</span></h2>
+                <p class="modal-subtitle">Let's discuss your project requirements</p>
+                <button class="modal-close btn-close" id="contactClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="contact-container-modal">
+                    <div class="contact-info-side">
+                        <div class="contact-card-modal">
+                            <div class="contact-icon-modal">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
-                            <div>
-                                <h3>Direct WhatsApp Chat</h3>
-                                <a href="https://wa.me/254117702463" target="_blank" class="contact-detail">
+                            <div class="contact-details">
+                                <h3>WhatsApp Business</h3>
+                                <a href="https://wa.me/254117702463" target="_blank" class="contact-link">
                                     +254 117 702 463
                                 </a>
-                                <p class="contact-note">Click to start a conversation</p>
+                                <p class="contact-note">Fastest response • Preferred contact</p>
                             </div>
                         </div>
                         
-                        <div class="contact-card">
-                            <div class="contact-icon">
+                        <div class="contact-card-modal">
+                            <div class="contact-icon-modal">
                                 <i class="fas fa-envelope"></i>
                             </div>
-                            <div>
+                            <div class="contact-details">
                                 <h3>Email Address</h3>
-                                <a href="mailto:kipkoechryan@gmail.com" class="contact-detail">
+                                <a href="mailto:kipkoechryan@gmail.com" class="contact-link">
                                     kipkoechryan@gmail.com
                                 </a>
-                                <p class="contact-note">For formal inquiries</p>
+                                <p class="contact-note">For detailed proposals and documents</p>
                             </div>
                         </div>
                         
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h3>Location</h3>
-                                <p class="contact-detail">Remote Work Enabled</p>
-                                <p class="contact-note">Serving clients worldwide</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-card">
-                            <div class="contact-icon">
+                        <div class="contact-card-modal">
+                            <div class="contact-icon-modal">
                                 <i class="fas fa-clock"></i>
                             </div>
-                            <div>
+                            <div class="contact-details">
                                 <h3>Response Time</h3>
                                 <p class="contact-detail">Within 2 Hours</p>
-                                <p class="contact-note">Mon-Fri, 9AM-6PM EAT</p>
+                                <p class="contact-note">Mon-Fri • 9AM-6PM EAT</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="whatsapp-form-container">
-                        <div class="form-header">
-                            <div class="whatsapp-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <h3>Send Message via WhatsApp</h3>
-                            <p class="form-subtitle">Your message will open directly in WhatsApp</p>
-                        </div>
-                        
-                        <form id="whatsappForm" class="whatsapp-form">
+                    <div class="contact-form-modal">
+                        <form id="whatsappForm" class="contact-form">
                             <div class="form-group">
-                                <label for="userName">Your Name</label>
-                                <input type="text" id="userName" placeholder="Enter your full name" required>
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" placeholder="Enter your full name" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="userEmail">Email Address</label>
-                                <input type="email" id="userEmail" placeholder="Enter your email address" required>
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="your.email@example.com" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="messageType">Project Type</label>
-                                <select id="messageType" required>
+                                <label for="projectType">Project Type</label>
+                                <select id="projectType" required>
                                     <option value="" disabled selected>Select project type</option>
-                                    <option value="Web Development">Web Development</option>
+                                    <option value="Web Development">Web Application</option>
                                     <option value="Mobile App">Mobile Application</option>
-                                    <option value="Backend System">Backend System</option>
-                                    <option value="Cloud Solution">Cloud Solution</option>
-                                    <option value="Consultation">Consultation</option>
-                                    <option value="Other">Other</option>
+                                    <option value="E-commerce">E-commerce Store</option>
+                                    <option value="API Development">API Development</option>
+                                    <option value="Cloud Migration">Cloud Migration</option>
+                                    <option value="Consultation">Technical Consultation</option>
                                 </select>
                             </div>
                             
                             <div class="form-group">
-                                <label for="userMessage">Your Message</label>
-                                <textarea id="userMessage" rows="4" placeholder="Describe your project or inquiry..." required></textarea>
+                                <label for="message">Project Details</label>
+                                <textarea id="message" rows="4" placeholder="Tell us about your project goals, timeline, and requirements..." required></textarea>
                                 <div class="char-counter">
                                     <span id="charCount">0</span>/500 characters
                                 </div>
                             </div>
                             
-                            <div class="form-footer">
-                                <button type="submit" class="btn btn-whatsapp">
-                                    <i class="fab fa-whatsapp"></i>
-                                    Send via WhatsApp
-                                </button>
-                                <p class="form-notice">
-                                    <i class="fas fa-info-circle"></i>
-                                    You'll be redirected to WhatsApp to send the message
-                                </p>
-                            </div>
+                            <button type="submit" class="btn-whatsapp-submit">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>Send via WhatsApp</span>
+                            </button>
                         </form>
+                        
+                        <div class="form-note">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Your information is secure and confidential. We'll respond within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-background">
+                <div class="gradient-overlay"></div>
+            </div>
+            
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line">Transforming</span>
+                        <span class="title-line">Ideas Into</span>
+                        <span class="title-line highlight-text">Digital Excellence</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        We craft exceptional digital experiences through innovative engineering, 
+                        modern design, and strategic thinking. Your vision, perfected through code.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <button class="btn-hero-primary" id="exploreServices">
+                            <i class="fas fa-rocket"></i>
+                            <span>Explore Services</span>
+                        </button>
+                        <button class="btn-hero-secondary" id="viewProjects">
+                            <i class="fas fa-eye"></i>
+                            <span>View Projects</span>
+                        </button>
+                        <button class="btn-hero-outline" id="contactHero">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Book Consultation</span>
+                        </button>
+                    </div>
+                    
+                    <div class="hero-features">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h4>Fast Delivery</h4>
+                            <p>Quick turnaround without compromising quality</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>Secure & Reliable</h4>
+                            <p>Enterprise-grade security and reliability</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4>24/7 Support</h4>
+                            <p>Round-the-clock technical support</p>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Alternative Contact Methods -->
-                <div class="alternative-contact">
-                    <h3>Alternative Contact Methods</h3>
-                    <div class="contact-methods">
-                        <a href="https://wa.me/254117702463?text=Hello%20Skydaddy%20Technologies!%20I%20found%20you%20through%20your%20portfolio%20website.%20I'd%20like%20to%20discuss%20a%20project." 
-                           target="_blank" class="contact-method">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>Quick Start Chat</span>
-                            <small>Pre-filled message</small>
-                        </a>
-                        
-                        <a href="mailto:kipkoechryan@gmail.com?subject=Project%20Inquiry%20from%20Skydaddy%20Portfolio&body=Hello%20Skydaddy%20Team,%0A%0AI%20found%20you%20through%20your%20portfolio%20website%20and%20would%20like%20to%20discuss%20a%20project.%0A%0ABest%20regards," 
-                           class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <span>Send Email</span>
-                            <small>Pre-filled template</small>
-                        </a>
-                        
-                        <a href="tel:+254117702463" class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <span>Call Us</span>
-                            <small>Direct call</small>
-                        </a>
+                <div class="hero-visual">
+                    <div class="floating-icons">
+                        <div class="floating-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="floating-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <div class="floating-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="floating-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -422,56 +855,76 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 class="footer-brand">Skydaddy<span class="brand-tech">.tech</span></h3>
-                <p class="footer-tagline">Delivering excellence in digital solutions</p>
-                <div class="footer-social">
-                    <a href="https://wa.me/254117702463" target="_blank" class="social-link">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-icon">⟁</span>
+                    <span class="logo-text">Skydaddy<span class="logo-highlight">.tech</span></span>
+                </div>
+                <p class="footer-tagline">Crafting digital excellence through innovation</p>
+            </div>
+            
+            <div class="footer-actions">
+                <button class="btn-footer-primary" id="footerServices">
+                    <i class="fas fa-cogs"></i>
+                    <span>Our Services</span>
+                </button>
+                <button class="btn-footer-secondary" id="footerProjects">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Our Projects</span>
+                </button>
+                <button class="btn-footer-contact" id="footerContact">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Contact Us</span>
+                </button>
+            </div>
+            
+            <div class="footer-info">
+                <div class="contact-info">
+                    <a href="https://wa.me/254117702463" target="_blank" class="contact-item">
                         <i class="fab fa-whatsapp"></i>
+                        <span>+254 117 702 463</span>
                     </a>
-                    <a href="mailto:kipkoechryan@gmail.com" class="social-link">
+                    <a href="mailto:kipkoechryan@gmail.com" class="contact-item">
                         <i class="fas fa-envelope"></i>
+                        <span>kipkoechryan@gmail.com</span>
                     </a>
+                </div>
+                
+                <div class="social-links">
                     <a href="#" class="social-link">
-                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="#" class="social-link">
                         <i class="fab fa-github"></i>
                     </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
             
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="#home" class="footer-link">Home</a>
-                <a href="#services" class="footer-link">Services</a>
-                <a href="#projects" class="footer-link">Projects</a>
-                <a href="#contact" class="footer-link">Contact</a>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Skydaddy Technologies. All rights reserved.</p>
+                <p>Designed for GitHub Pages • Optimized for Performance</p>
             </div>
-            
-            <div class="footer-section">
-                <h4>Services</h4>
-                <a href="#services" class="footer-link">Frontend Development</a>
-                <a href="#services" class="footer-link">Backend Development</a>
-                <a href="#services" class="footer-link">Mobile Development</a>
-                <a href="#services" class="footer-link">Cloud Solutions</a>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Contact Info</h4>
-                <p><i class="fas fa-phone"></i> +254 117 702 463</p>
-                <p><i class="fas fa-envelope"></i> kipkoechryan@gmail.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Remote Services Worldwide</p>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 project Skydaddy Technologies. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="app.js"></script>
 </body>
 </html>
+                    </div>
+                    
+                    <div class="copyright">
+                        <p>&copy; 2024 Skydaddy.tech | All Rights Reserved</p>
+                        <p>Designed for GitHub Pages Hosting</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
+    <script src="app.js"></script>
+</body>
+</html>
